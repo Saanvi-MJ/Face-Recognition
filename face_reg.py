@@ -2,15 +2,21 @@ import cv2
 import face_recognition
 
 def capture_selfie():
-    # Initialize webcam
+
     cam = cv2.VideoCapture(0)
     cv2.namedWindow("Selfie")
-
+    
     while True:
         ret, frame = cam.read()
         if not ret:
             print("Failed to grab frame")
             break
+
+        height, width = frame.shape[:2]
+
+        cv2.putText(frame, "Press enter key to take a selfie.", (int(width / 2) - 100, height - 10), 
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2, cv2.LINE_AA)
+
         cv2.imshow("Selfie", frame)
 
 
