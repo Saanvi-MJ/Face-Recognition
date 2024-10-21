@@ -14,7 +14,7 @@ def capture_selfie():
         cv2.imshow("Selfie", frame)
 
 
-        if cv2.waitKey(1) & 0xFF == ord('c'):
+        if cv2.waitKey(1) & 0xFF == 13:
             selfie_path = "selfie.jpg"
             cv2.imwrite(selfie_path, frame)
             print(f"Selfie saved as {selfie_path}")
